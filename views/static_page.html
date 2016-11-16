@@ -3,53 +3,45 @@
 
 <head>
 	<script type="text/javascript" src="../db/posts.json"></script>
-
 </head>
 
 
 <body>
 
-<h2>Bull</h2>
-
-<p id="start"></p>
-
-<script>
-
-var json = require="../db/posts.json";
-// console.log(json)
-
-var item = JSON.parse(json);
-
-alert(item[0].service_id);
-alert(item[0].item.account_id);
+	<h2>(ONE) LAST TWEET:</h2>
 
 
+		<!-- single last tweet -->
+	<p id="tweet"></p>
+		<script type="text/javascript">
+		var posts = data.items
 
-</script>
+		posts.forEach(function(elm) {
+			document.getElementById("tweet").innerHTML =
+			elm.item_data.tweet + "<br />";
+		});
+		</script>
+
+
+<h2>ALL TWEETS:</h2>
+
+		<!-- all tweets -->
+	<p id="tweets"></p>
+		<script type="text/javascript">
+		tweets = document.getElementById("tweets");
+		var posts = data.items
+
+		posts.forEach(function(elm) {
+			tweets.innerHTML = tweets.innerHTML + elm.item_data.tweet + "<br />";
+	
+		});	
+		</script>
+
+
+
+
 
 </body>
 
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-<body>
-
-<h2>JSON Object Creation in JavaScript</h2>
-
-<p id="demo"></p>
-
-<script>
-var text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
-
-var obj = JSON.parse(text);
-
-document.getElementById("demo").innerHTML =
-obj.name + "<br>" +
-obj.street + "<br>" +
-obj.phone;
-</script>
-
-</body>
-</html> -->
